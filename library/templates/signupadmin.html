@@ -1,0 +1,58 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+{% if error %}
+<script>alert('Username is not Exists')</script>
+{% endif %}
+<style>
+.container{
+padding:1px;
+margin:30px 250px;
+background-color: rgba(50, 115, 220, 0.3);
+border-radius:1px;
+width:850px;
+
+}
+.img{
+padding:0px 10px 25px 10px}
+input[type=text],[type=password],[type=email]{padding:8px;
+width:700px;
+border-radius:4px;
+}
+input[type=submit]{
+width:200px;
+background-color:#2980B9;
+color:white;
+margin-left:250px;
+margin-bottom:20px;
+}
+</style>
+
+
+<div class="container">
+    <table align="center" width="800" style="margin-left:80px">
+        <center><h3 style="background-color:#2980B9;color:white">Signup Admin</h3><br></center>
+        <tr>
+            <td>
+                <form method="post" action="">
+                    {% csrf_token %}
+Enter First Name
+                    <input type="text" name="firstname" placeholder=" Enter First Name"><br><br>
+                    Enter Last Name
+                    <input type="text" name="lastname" placeholder=" Enter Last Name"><br><br>
+                    Enter Email Id
+                    <input type="email" name="emailid" placeholder=" Enter Email Id"><br><br>
+                   Enter UserName
+                    <input type="text" name="username" placeholder=" Enter UserName"><br><br>
+                    Enter Password
+                    <input type="password" name="password" placeholder="password"><br><br>
+
+                    <input type="submit" name="login" placeholder="Submit"></a>
+                </form>
+            </td>
+         </tr>
+    </table>
+</center>
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+    <div align="center">
+        <h3 align="center">View Student</h3>
+        <table border="1" style="width:1000px" align="center" id="myTable"  class="table table-border">
+<thead style="background-color:#2980B9;color:white">
+        <tr>
+            <th>S.N</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Enrollment</th>
+            <th>Branch</th>
+            <th> Action</th>
+
+        </tr></thead>
+            <tbody>
+        {% for i in data1 %}
+         <tr>
+
+             <td>{{forloop.counter}} </td>
+             <td>{{i.user.first_name}} </td>
+             <td>{{i.user.last_name}} </td>
+             <td>{{i.rollNo}} </td>
+             <td>{{i.branch}} </td>
+             <td> <button><a href="{% url 'deletestudent' i.id %}">Delete</a></button><button><a href="{% url 'editstudent' i.id %}">Edit</a></button></td>
+
+
+         </tr>
+        {% endfor %}
+            </tbody>
+
+    </table>
+    </div>
+{% endblock %}
+
+

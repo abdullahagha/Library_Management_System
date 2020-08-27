@@ -1,0 +1,44 @@
+
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+<center>
+        <h3>ISSUE BOOK </h3>
+
+        <table border="1" style="width:1000px" id="myTable"  class="table table-border">
+<thead style="background-color:#2980B9;color:white">
+        <tr>
+            <th>S.N</th>
+            <th>Student</th>
+            <th>Book</th>
+            <th>Authorname</th>
+            <th>ISBN</th>
+            <th>IssueDate</th>
+            <th> ExpiryDate</th>
+            <th> Action</th>
+
+        </tr>
+        </thead>
+            <tbody>
+        {% for i in data1 %}
+         <tr>
+
+             <td>{{forloop.counter}} </td>
+             <td>{{i.studentinfo.user.username}} </td>
+             <td>{{i.book.book_name}} </td>
+             <td>{{i.book.author}} </td>
+             <td>{{i.book.isbn}} </td>
+             <td>{{i.issue_date}}</td>
+             <td>{{i.expiry_date}}</td>
+             <td> <button><a href="{% url 'returnbook' i.id %}">Return</a></button><button><a href="{% url 'fine' i.id %}">fine</a></button></td>
+
+
+         </tr>
+        {% endfor %}
+</tbody>
+    </table>
+</center>
+
+{% endblock %}
+
+

@@ -1,0 +1,39 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block body %}
+
+{% if error %}
+<script>alert('Username already Exists')</script>
+{% endif %}
+{% if error1 %}
+<script>alert('Registration Sucessfull');
+window.location='{% url 'studentlogin' %}';
+</script>
+{% endif %}
+
+
+<center>
+    <h1>Signup Student</h1>
+    <table>
+        <tr>
+            <td>
+                <div class="container" style="height:600px;width:400px;">
+                <form method="post" action="" style="margin-left:80px">
+                    {% csrf_token %}
+                    <h4>First Name </h4><input type="text" name="firstname" placeholder=" Enter firstName"><br>
+                    <h4>Last Name </h4> <input type="text" name="lastname" placeholder="lastname"><br>
+                    <h4>EnrollmentNo</h4> <input type="text" name="enroll" placeholder="EnrollNo" ><br>
+                    <h4>Branch </h4><input type="text" name="branch" placeholder="Branch"><br>
+                    <h4>User Name</h4><input type="text" name="username" placeholder="username"><br>
+                    <h4>Password</h4><input type="password" name="password" placeholder="password"><br><br>
+                    <input type="submit"value="Submit">
+                </form>
+                </div>
+            </td>
+         </tr>
+    </table>
+
+</center>
+
+
+{% endblock %}

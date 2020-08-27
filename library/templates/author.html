@@ -1,0 +1,155 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        } );
+    </script>
+
+
+    <style>
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+        * {
+            box-sizing: border-box;
+        }
+
+
+
+
+        body{
+            background-image:url("admin.png");
+        }
+        .container{
+            background-color:rgb(242,242,242);
+            margin-left:30px;
+            margin-top:10px;
+            margin-left:100px;
+            padding-top:10px ;
+            padding-left:5px;
+            padding-right:5px;
+            padding-bottom:20px;
+        }
+        h1{
+            background-color:
+        }
+        .hover{
+            background-color:#2980B9 ;
+            color:white;}
+
+
+    </style>
+</head>
+<body >
+
+<nav class="navbar navbar-expand-sm" style="background-color:#2980B9 ">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#" style="color:red">Library Management System</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'addbook' %}" style="color:white">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:white">
+                Book
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'addbook' %}">Add Book</a>
+                <a class="dropdown-item" href="{% url 'viewbook' %}">View Book </a>
+                <a class="dropdown-item" href="#"></a>
+            </div>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:white">
+                Issue Book
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'issuebook' %}">Issue New Book</a>
+                <a class="dropdown-item" href="{% url 'viewissue' %}">View Issue Book</a>
+
+            </div>
+        </li>
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:white">
+                Student Report
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'registerstudent' %}">Register New Student</a>
+                <a class="dropdown-item" href="{% url 'viewstudent' %}">View Student Detail</a>
+
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'viewItem' %}" style="color:white">View Items</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'employees' %}" style="color:white">View Employees</a>
+        </li>
+
+        <li class="nav-item" >
+            <a class="nav-link" href="{% url 'add_employee' %}" style="color:white">Add employee</a></span>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'authors' %}" style="color:white">View Authors</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}" style="color:white">Logout</a>
+        </li>
+
+    </ul>
+</nav>
+
+{% if all_author %}
+<h3> Here all the authors that library has:</h3>
+<ul>
+    {% for author in all_author %}
+    <font size="+2"> <li> {{ author.authorName }} </li></font>
+    <img src="{{author.authorImage}}" alt="Example" width="250" height="250" />
+    <button><a href="{% url 'deleteauthor' author.id %}">Delete</a></button>
+    <button><a href="{% url 'editauthor' author.id %}">Edit</a></button>
+
+    {% endfor %}
+
+</ul>
+{% else %}
+<h3>  Library doesn't have any author</h3>
+{% endif%}
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

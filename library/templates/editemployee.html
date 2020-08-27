@@ -1,0 +1,37 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+<script>
+    {% if error %}
+    alert('Employee is update successfully')
+    {%  endif %}
+</script>
+
+<div class="container" style="width:500px;margin-left:400px" >
+    <center>
+        <h1 style="background-color:#2980B9;color:white">Edit Employee</h1>
+        <table>
+            <tr>
+                <td>
+
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <h4>Emp Name </h4><input type="text" name="empName" value="{{all_employee.empName}}">
+                        <h4>Emp Tel</h4> <input type="text" name="empTel"  value="{{all_employee.empTel}}" ><br>
+                        <h4>Emp Position </h4><input type="text" name="empPosition"  value="{{all_employee.empPosition}}" >
+                        <h4>Picture</h4><input type="text" name="picture"  value="{{all_employee.picture}}" ><br>
+                        <input type="submit" name="submit" placeholder="Add">
+
+
+
+
+                    </form>
+                </td>
+            </tr>
+        </table>
+
+    </center>
+
+
+    {% endblock %}
+</div>

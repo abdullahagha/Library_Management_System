@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+<center>
+    <h1>Update Book</h1>
+    <table>
+        <tr>
+            <td>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <h4>Book Id </h4>
+                    <input type="number" placeholder="bookid" name="bookid">
+                    <input type="submit" value="update" >
+
+                </form>
+            </td>
+         </tr>
+
+
+    </table><br>
+    {% if error %}
+    <table id="myTable"  class="table table-border" width="600">
+        <thead >
+        <tr>
+            <th>S.No</th>
+            <th>Book Name</th>
+            <th>Book ID</th>
+            <th>Author Name</th>
+            <th>Cost</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.title}}</td>
+            <td>{{i.bookid}}</td>
+            <td>{{i.Authorname}}</td>
+            <td>{{i.cost}}</td>
+            <td>{{i.quantity}}</td>
+            <td> <button><a href="">Delete</a></button><button><a href="{% url 'editbook' %}">Edit</a></button> </td>
+
+        </tr>
+        {% endfor %}
+
+        </tbody>
+        {% endif %}
+
+    </table>
+</center>
+
+
+{% endblock %}

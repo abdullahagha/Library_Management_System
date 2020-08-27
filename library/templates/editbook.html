@@ -1,0 +1,33 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+<script>
+{% if error %}
+alert('Book is update successfully')
+{%  endif %}
+</script>
+
+<div class="container" style="width:500px;margin-left:400px" >
+<center>
+    <h1 style="background-color:#2980B9;color:white">Add Book</h1>
+    <table>
+        <tr>
+            <td>
+
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <h4>Book Name </h4><input type="text" name="book" value="{{data.book_name}}">
+                    <h4>ISBN</h4> <input type="text" name="isbn"  value="{{data.isbn}}" ><br>
+                    <h4>Author Name </h4><input type="text" name="author"  value="{{data.author}}" >
+                    <h4>Category</h4><input type="text" name="cat"  value="{{data.category}}" ><br>
+                    <h4>Quantity</h4><input type="text" name="quantity"  value="{{data.quantity}}" ><br><br>
+                    <input type="submit" name="submit" placeholder="Add">
+                </form>
+            </td>
+         </tr>
+    </table>
+
+</center>
+
+
+{% endblock %}

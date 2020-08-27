@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+
+<html>
+<title>Library Automation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css.jquery.dataTables.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
+
+<style>
+  * {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 20%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th {
+  text-align: left;
+  padding: 12px;
+  background-color:#a0522d ;
+  color: white;
+}
+#myTable td {
+  text-align: left;
+  padding: 12px;
+  background-color: white;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+body{
+  background-image:url("admin.png");
+}
+.container{
+background-color:rgb(242,242,242);
+margin:50px;
+margin-left:100px;
+padding-top:20px ;
+padding-left:5px;
+padding-right:5px;
+padding-bottom:30px;
+}
+h1{
+background-color:
+}
+.hover{
+background-color:#a0522d;
+color:white;}
+
+</style>
+<body>
+<div class="w3-container">
+</div>
+<div class="w3-cell-row">
+
+  <div class="w3-container w3-cell w3-mobile"  style="width:300px;padding:20px;background-color:#2980B9"align="center">
+    <a style="color:white" href=""> Logout</a>
+  </div>
+</div>
+{% block body %}
+{% endblock %}
+</body>
+</html>

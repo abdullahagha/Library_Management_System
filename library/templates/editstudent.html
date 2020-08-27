@@ -1,0 +1,27 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+{% if error %}
+<script>alert('Username already Exists')</script>
+{% endif %}
+<center>
+    <h1>Edit Student</h1>
+    <table>
+        <tr>
+            <td>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <h4>First Name </h4><input type="text" name="fname" value="{{data.user.first_name}}"><br>
+                    <h4>Last Name </h4> <input type="text" name="lname" value="{{data.user.last_name}}"><br>
+                    <h4>EnrollmentNo</h4> <input type="text" name="enroll" value="{{data.rollNo}}" ><br>
+                    <h4>Branch </h4><input type="text" name="branch" value="{{data.branch}}"><br>
+                    <input type="submit" name="signup" placeholder="Signup">
+                </form>
+            </td>
+         </tr>
+    </table>
+
+</center>
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'bash.html' %}
+{% load static %}
+{% block body %}
+{% if error %}
+<script>alert('Username already Exists')
+{% endif %}</script><center>
+    <h1>Edit Profile</h1></center>
+    <div class="container" style="margin-left:250px">
+    <table align="center">
+        <tr>
+            <td>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <h4>First Name </h4><input type="text" name="fname" value="{{data.user.first_name}}"><br>
+                    <h4>Last Name </h4> <input type="text" name="lname" value="{{data.user.last_name}}"><br>
+                    <h4>EnrollmentNo</h4> <input type="text" name="enroll" value="{{data.rollNo}}" ><br>
+                    <h4>Branch </h4><input type="text" name="branch" value="{{data.branch}}"><br>
+                    <input type="submit" style="margin:70px;margin:left:60px">
+                </form>
+            </td>
+         </tr>
+    </table>
+</div>
+
+
+
+{% endblock %}

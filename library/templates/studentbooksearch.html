@@ -1,0 +1,86 @@
+{% extends 'bash.html' %}
+{% load static %}
+{% block body %}
+
+
+<table align="center">
+    <tr>
+        <th>
+        {% if error %}
+
+    <table id="myTable"  class="table table-border" width="600" style="margin-left:0px">
+        <h3>Search book</h3>
+        <thead >
+        <tr>
+            <th>S.No</th>
+            <th>Book Name</th>
+            <th>Author Name</th>
+            <th>Cost</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.title}}</td>
+            <td>{{i.Authorname}}</td>
+            <td>{{i.cost}}</td>
+            <td><a href="{% url 'editbook' i.id %}">Edit</a></button> </td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        </th>
+        {% else %}
+        <th >
+
+    <table id="myTable"  class="table table-border" width="600" style="margin-left:0px">
+        <h1>Book View</h1>
+        <thead >
+        <tr>
+            <th>S.No</th>
+            <th>Book Name</th>
+            <th>Author Name</th>
+            <th>Cost</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.title}}</td>
+            <td>{{i.Authorname}}</td>
+            <td>{{i.cost}}</td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+        </th>
+        {% endif %}
+
+        <th>
+            <h4 style="margin-left:50px">Search Book</h4>
+            <div style="background-color:rgb(242,242,242);height:200px;margin-left:50px">
+            <form method="post" action="" style="margin-left:15px;padding:20px">
+                    {% csrf_token %}
+
+                    <input type="text" placeholder="bookname" name="bookname" style="margin-top:29px">
+                     <br><br>
+                    <input type="text" placeholder="Authorname" name="authorname"><br><br><br>
+                    <input type="submit" value="search" style="margin-left:38px;margin-bottom:10px">
+
+                </form>
+                </div>
+        </th>
+    </tr>
+</table>
+
+
+{% endblock %}
+
+

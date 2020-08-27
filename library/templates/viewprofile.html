@@ -1,0 +1,34 @@
+
+{% extends 'bash.html' %}
+{% load static %}
+{% block body %}
+
+        <h3 align="center">ISSUE BOOK </h3>
+            <div class="container" style="margin-left:200px">
+
+          <div class="row">
+    <div class=" col-md-4 col-sm-4 col-sm-4" style="margin-left:400px">
+       
+
+        
+            <h3>Name : {{data.user.first_name}} {{data.user.last_name}}</h3>
+
+        
+            
+                <h3>Enrollment : {{data.rollNo}}</h3>
+            
+            
+                <h3>Branch : {{data.branch}}</h3>
+            
+            
+     <button style="margin-top:100px"><a href="{% url 'editprofile' request.user.id %}">Edit Profile</a></button>
+            
+            
+
+    </div></div>
+
+
+</div>
+{% endblock %}
+
+

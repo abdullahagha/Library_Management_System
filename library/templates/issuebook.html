@@ -1,0 +1,55 @@
+{% extends 'navigation.html' %}
+{% load static %}
+<style>
+    input[type=submit]{
+    background-color: #2980B9;}
+</style>
+{% for i in messages %}
+<h3 style="color:purple">{{i}}</h3>
+{% endfor %}
+{% block body %}
+<div class="container" style="width:600px;margin-left:400px;height:500px" >
+<center>
+    <h1 style="background-color:#2980B9;color:white">Issue Book</h1>
+    <table>
+        <tr>
+            <td>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <h5 align="center" style="margin-top:30px">Enrollment No & Student Name</h5><i class="fa fa-book fa-2x" aria-hidden="true" style="color:#2980B9;width:30px"></i>
+                    <select  name="enroll" style="color:#2980B9;width:540px;height:35px;border-radius:4px">
+                        {% for i in studentinfo %}
+                        <option value="{{i.rollNo}}">{{i.rollNo}} [{{i.user.first_name}}]</option>
+                        <script>
+
+                        </script>
+{% endfor %}
+</select>
+
+
+                    <h5 align="center"  style="margin-top:30px">Book</h5><i class="fa fa-address-book   fa-2x" aria-hidden="true" style="color:#2980B9;width:30px"> </i>
+                   <select style="color:#2980B9;width:540px;height:35px;border-radius:4px" name="book">
+                        {% for i in book %}
+                        <option value="{{i.book_name}}">({{forloop.counter}}). {{i.book_name}} [{{i.author}}]</option>
+{% endfor %}
+                   </select>
+                    <h5 align="center"  style="margin-top:30px">ISBN</h5><i class="fa fa-address-book   fa-2x" aria-hidden="true" style="color:#2980B9;width:30px"> </i>
+
+                    <select style="color:#2980B9;width:540px;height:35px;border-radius:4px" name="isbn">
+                        {% for i in book %}
+                        <option value="{{i.isbn}}">({{forloop.counter}}). {{i.isbn}} </option>
+                    {% endfor %}
+                   </select><br>
+
+                  <br>  <input  class="hover" type="submit" name="submit" placeholder="Add" style="margin-left:240px;float:center">
+                </form>
+            </td>
+         </tr>
+    </table>
+
+</center>
+</div>
+
+
+
+{% endblock %}

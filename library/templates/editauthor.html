@@ -1,0 +1,35 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+<script>
+    {% if error %}
+    alert('Author is updated successfully')
+    {%  endif %}
+</script>
+
+<div class="container" style="width:500px;margin-left:400px" >
+    <center>
+        <h1 style="background-color:#2980B9;color:white">Edit Employee</h1>
+        <table>
+            <tr>
+                <td>
+
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <h4>Author Name </h4><input type="text" name="authorName" value="{{all_author.authorName}}">
+                        <h4>Author Image</h4> <input type="text" name="authorImage"  value="{{all_author.authorImage}}" ><br>
+
+                        <input type="submit" name="submit" placeholder="Add">
+
+
+
+
+                    </form>
+                </td>
+            </tr>
+        </table>
+
+    </center>
+
+
+    {% endblock %}

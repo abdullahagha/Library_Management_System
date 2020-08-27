@@ -1,0 +1,39 @@
+
+{% extends 'bash.html' %}
+{% load static %}
+{% block body %}
+    <div align="center">
+        <h3 align="center">ISSUE BOOK </h3>
+        <table border="1" style="width:1000px" align="center" id="myTable"  class="table table-border">
+<thead>
+        <tr>
+            <th>S.N</th>
+            <th>Student</th>
+            <th>Book</th>
+            <th>Authorname</th>
+            <th>IssueDate</th>
+            <th> ExpiryDate</th>
+            <th> Action</th>
+
+        </tr>
+        </thead><tbody>
+        {% for i in data1 %}
+         <tr>
+
+             <td>{{forloop.counter}} </td>
+             <td>{{i.studentinfo.user.username}} </td>
+             <td>{{i.book.book_name}} </td>
+             <td>{{i.book.author}} </td>
+             <td>{{i.issue_date}}</td>
+             <td>{{i.expiry_date}}</td>
+             <td> <button><a href="{% url 'fine2' i.id %}">Fine</a></button> </td>
+
+
+         </tr>
+        {% endfor %}
+</tbody>
+    </table>
+    </div>
+{% endblock %}
+
+

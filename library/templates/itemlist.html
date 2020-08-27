@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+<html>
+<head>
+    <title>HTML Backgorund Color</title>
+</head>
+<body style="background-color:whitesmoke;">
+ </body>
+</html>
+{% if all_items %}
+    <h3> Here all the Items that library has</h3>
+    <ul>
+        {% for item in all_items %}
+        <h2> {{item.ItemName}}</h2>
+         <img src="{{item.ItemImage}}" alt="Example" width="250" height="250" />
+
+
+        {% endfor %}
+
+    </ul>
+{% else %}
+    <h3>  Library doesn't have any Item</h3>
+{% endif%}
+{% endblock %}

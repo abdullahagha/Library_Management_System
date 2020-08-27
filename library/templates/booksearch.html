@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block body %}
+{% for i in messages %}
+<h3 style="color:purple">{{i}}</h3>
+{% endfor %}
+<script>
+{% if error1 %}
+alert('Book is deleted successfully')
+{%  endif %}
+</script>
+<center>
+    <h1>Search Book</h1>
+    <table>
+        <tr>
+            <td>
+                <form method="post" action="" style="background-color:rgb(242,242,242) ;margin:50px;padding:40px;height:200px">
+                    {% csrf_token %}
+                    <h4 align="center">Book Id </h4>
+                    <i class="fa fa-list-ol  fa-2x" aria-hidden="true" style="color:#2980B9;width:30px"></i> <input type="number" placeholder="bookid" name="bookid"><br><br>
+                    <input class="hover" type="submit" value="search"style="margin-left:80px" >
+
+                </form>
+            </td>
+         </tr>
+
+
+    </table><br>
+    {% if error %}
+    <table id="myTable"  class="table table-border" width="600" style="width:800px" >
+        <thead >
+        <tr>
+            <th>S.No</th>
+            <th>Book Name</th>
+            <th>Book ID</th>
+            <th>Author Name</th>
+            <th>Cost</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.title}}</td>
+            <td>{{i.bookid}}</td>
+            <td>{{i.Authorname}}</td>
+            <td>{{i.cost}}</td>
+            <td>{{i.quantity}}</td>
+            <td><button><a href="{% url 'deletebook' i.id %}">Delete</a></button><button><a href="{% url 'editbook' i.id %}">Edit</a></button></td>
+
+        </tr>
+        {% endfor %}
+
+        </tbody>
+        {% endif %}
+
+    </table>
+
+
+</center>
+
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block body %}
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+    <li data-target="#demo" data-slide-to="3"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner" style="width:1550px;height:400px">
+    <div class="carousel-item active" style="height:300px">
+      <img src="{% static 'images\ankara1.jpg' %}" alt="ankara"  style="height:500px">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images\ankara2.jpg' %}" alt="lib"   style="height:500px">
+    </div>
+
+
+     <div class="carousel-item">
+      <img src="{% static 'images\ankara3.jpg' %}" alt="students" style="height:500px">
+    </div>
+
+     <div class="carousel-item">
+      <img src="{% static 'images\ankara4.jpg' %}" alt="tables" style="height:500px">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+  <center>
+  <table style="margin-top:20px;width:800px">
+    <tr>
+      <th>
+      <h4 style="margin-left:40px">Administration</h4>
+
+   <a href="{% url 'loginadmin' %}"><img src="{% static 'images\a2.png' %}" style="width:250px;height:200px"><hr>
+      </th>
+      <th>
+        <h4 style="margin-left:130px">Student</h4>
+    <a href="{% url 'studentlogin' %}"><img src="{% static 'images\a3.png' %}" style="width:250px;height:200px;margin-left:90px;color:blue"></a><hr>
+      </th>
+    </tr>
+  </table>
+  </center>
+
+
+{% endblock %}
+
+
+

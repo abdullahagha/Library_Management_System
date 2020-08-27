@@ -1,0 +1,32 @@
+{% extends 'navigation.html' %}
+{% load static %}
+<script>
+<style>
+    input[type=submit]{
+    background-color: #2980B9;}
+</style>
+{% block body %}
+<div class="container" style="width:500px;margin-left:400px" >
+<center>
+    <h1 style="background-color:#2980B9;color:white">Add Book</h1>
+    <table>
+        <tr>
+            <td>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <h4 align="center">Book Name</h4><i class="fa fa-book fa-2x" aria-hidden="true" style="color:#2980B9 ;width:30px"></i> <input type="text" name="book" ><br>
+                    <h4 align="center">Author Name </h4><i class="fa fa-address-book   fa-2x" aria-hidden="true" style="color:#2980B9 ;width:30px"> </i> <input type="text" name="author" >
+                    <h4 align="center">Category </h4><i class="fas fa-newspaper  fa-2x" aria-hidden="true" style="color:#2980B9 ;width:30px"> </i> <input type="text" name="category" ><br>
+                    <h4 align="center">ISBN </h4><i class="fa fa-list-ol  fa-2x" aria-hidden="true" style="color:#2980B9 ;width:30px"> </i>  <input type="number" name="isbn"><br><br>
+                    <h4 align="center">Quantity</h4><i class="fas fa-newspaper  fa-2x" aria-hidden="true" style="color:#2980B9 ;width:30px"></i>  <input type="number" name="quantity" ><br><br>
+                    <input class="hover" type="submit" name="submit" placeholder="Add" style="margin-left:50px">
+                </form>
+            </td>
+         </tr>
+    </table>
+
+</center>
+</div>
+
+
+{% endblock %}
